@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const authRoutes = require("./routes/authRoutes");
+const privateRoutes = require("./routes/privateRoutes");
+const connectDB = require("./config/db");
 
 // config
 dotenv.config();
@@ -13,6 +15,9 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
+app.use("/api/private", privateRoutes);
+
+connectDB()
 
 // routes (to be added later)
 app.get("/", (req, res) => {
@@ -20,8 +25,7 @@ app.get("/", (req, res) => {
 });
 
 // connect to DB and start server
-mongoose
-  .connect(process.env.MONGO_URI, {
+mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
