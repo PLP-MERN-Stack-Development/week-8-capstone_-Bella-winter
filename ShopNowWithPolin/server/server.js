@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const authRoutes = require("./routes/authRoutes");
 const privateRoutes = require("./routes/privateRoutes");
 const connectDB = require("./config/db");
+const productRoutes = require("./routes/productRoutes");
 
 // config
 dotenv.config();
@@ -16,6 +17,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/private", privateRoutes);
+app.use("/api/products", productRoutes);
 
 connectDB()
 
