@@ -1,9 +1,13 @@
 // src/pages/Login.jsx
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
+
 
 const Login = () => {
-  const [formData, setFormData] = useState({
+ const navigate = useNavigate();
+ const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
@@ -15,9 +19,11 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", formData);
+      const res = await axios.post("/api/auth/login", formData);
       alert("Logged in!");
       console.log(res.data);
+      localStorage.setItem("token", res.data.token);
+      navigate("/dashboard");
     } catch (err) {
       alert("Login failed.");
       console.error(err.response?.data || err.message);

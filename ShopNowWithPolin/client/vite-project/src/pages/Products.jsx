@@ -1,4 +1,4 @@
-import { useCart } from "../context/CartContext"; // 👈 Import the hook
+import { useCart } from "../context/cartContext"; // 👈 Import the hook
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -15,7 +15,7 @@ const Products = () => {
     };
     fetchProducts();
     }, []);
-    
+
 
   return (
     <div className="p-4">
