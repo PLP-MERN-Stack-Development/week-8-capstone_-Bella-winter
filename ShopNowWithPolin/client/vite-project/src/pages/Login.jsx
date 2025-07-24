@@ -16,19 +16,27 @@ const Login = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await axios.post("/api/auth/login", formData);
-      alert("Logged in!");
-      console.log(res.data);
-      localStorage.setItem("token", res.data.token);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const res = await fetch("http://localhost:5000/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+      localStorage.setItem("token", data.token);
       navigate("/dashboard");
-    } catch (err) {
-      alert("Login failed.");
-      console.error(err.response?.data || err.message);
+    } else {
+      alert("Login failed: " + data.message); // ← more helpful error
     }
-  };
+  } catch (err) {
+    console.error(err);
+    alert("Something went wrong");
+  }
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
