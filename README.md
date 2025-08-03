@@ -1,52 +1,143 @@
-# MERN Stack Capstone Project
+### ShopNowWithPolin
+A fully functional eCommerce web application built using the MERN stack (MongoDB, Express, React, Node.js) with real-time updates, authentication, API testing, and modern UI design.
+ This is a project done with alot of time, errors and not yet gotten what i had in mind. Planning on working on it fully till I get What i Really Wanted.
 
-This assignment focuses on designing, developing, and deploying a comprehensive full-stack MERN application that showcases all the skills you've learned throughout the course.
 
-## Assignment Overview
+## 📌 Features
 
-You will:
-1. Plan and design a full-stack MERN application
-2. Develop a robust backend with MongoDB, Express.js, and Node.js
-3. Create an interactive frontend with React.js
-4. Implement testing across the entire application
-5. Deploy the application to production
+### 👥 User Features
+- User registration & login (JWT authentication)
+- Browse products with details
+- Add/remove items to/from cart
+- Place orders & view order history
+- Real-time order status updates
+- Chat with admin (via Socket.io)
 
-## Getting Started
+### 🛠️ Admin Features
+- Add/update/delete products
+- View all users and orders
+- Real-time customer chat
+- Order status management
 
-1. Accept the GitHub Classroom assignment
-2. Clone the repository to your local machine
-3. Follow the instructions in the `Week8-Assignment.md` file
-4. Plan, develop, and deploy your capstone project
+## 🧱 Tech Stack
 
-## Files Included
+| Layer     | Technology                     |
+|-----------|--------------------------------|
+| Frontend  | React, Tailwind CSS, Axios     |
+| Backend   | Express.js, Node.js            |
+| Database  | MongoDB (Atlas) + Mongoose     |
+| Auth      | JWT                            |
+| Realtime  | Socket.io                      |
+| Testing   | Jest, Supertest, Cypress       |
+| DevOps    | GitHub Actions, Vercel, Render |
 
-- `Week8-Assignment.md`: Detailed assignment instructions
+---
 
-## Requirements
+## 🗂️ Project Structure
 
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- npm or yarn
-- Git and GitHub account
-- Accounts on deployment platforms (Render/Vercel/Netlify/etc.)
+ShopNowWithPolin/
+├── server/
+│ ├── controllers/
+│ ├── models/
+│ ├── routes/
+│ ├── middleware/
+│ ├── config/
+│ └── server.js
+├── client/
+│ ├── src/
+│ │ ├── components/
+│ │ ├── pages/
+│ │ ├── context/
+│ │ ├── App.jsx
+│ │ └── main.jsx
+├── .env
+└── README.md
 
-## Project Ideas
+## ⚙️ Setup Instructions
 
-The `Week8-Assignment.md` file includes several project ideas, but you're encouraged to develop your own idea that demonstrates your skills and interests.
+### ✅ Prerequisites
+- Node.js and pnpm installed
+- MongoDB Atlas account (or local MongoDB)
+- Vercel/Render accounts for deployment
 
-## Submission
+### 🚀 Backend Setup
 
-Your project will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+```bash
+cd server
+pnpm install
+pnpm run dev
+```
+🌐 Frontend Setup
+bash
+Copy
+Edit
+cd client
+pnpm install
+pnpm run dev
+🔌 API Documentation
+Method	Endpoint	Description
+POST	/api/auth/register	Register user
+POST	/api/auth/login	Login user
+GET	/api/products	List all products
+POST	/api/orders	Place new order
+GET	/api/orders/user/:id	Get user order history
 
-1. Commit and push your code regularly
-2. Include comprehensive documentation
-3. Deploy your application and add the live URL to your README.md
-4. Create a video demonstration and include the link in your README.md
+➡️ Full API documentation available in /server/docs/API.md
 
-## Resources
+🔐 Authentication & Authorization
+JSON Web Tokens (JWT)
 
-- [MongoDB Documentation](https://docs.mongodb.com/)
-- [Express.js Documentation](https://expressjs.com/)
-- [React Documentation](https://react.dev/)
-- [Node.js Documentation](https://nodejs.org/en/docs/)
-- [GitHub Classroom Guide](https://docs.github.com/en/education/manage-coursework-with-github-classroom) 
+Protected routes using middleware
+
+Role-based access (user/admin)
+
+🔁 Real-time Features (Socket.io)
+Real-time order status updates
+
+Live customer–admin chat support
+
+🧪 Testing
+Type	Tools	Description
+Unit Testing	Jest	API logic & utility functions
+Integration	Supertest	REST endpoints & DB interactions
+E2E Testing	Cypress	Critical user flows (e.g. checkout)
+
+Run tests:
+
+bash
+Copy
+Edit
+pnpm test
+🌍 Deployment
+Frontend: Vercel
+
+Backend: Render
+
+Database: MongoDB Atlas
+
+📊 CI/CD & Monitoring
+GitHub Actions for testing + deployment
+
+Environment-specific .env support
+
+Logging and monitoring via Render logs
+
+🧑‍💻 Contributing
+Feel free to fork and PR!
+
+Clone the repo
+
+Create a new branch
+
+Submit your pull request ✅
+
+📘 License
+MIT License
+
+📽️ Demo
+Coming Soon! (or insert link here)
+
+👩‍💻 Developer
+Pauline Mwangi
+Email: polinmwangi6115@gmail.com
+GitHub: @Bella-winter
