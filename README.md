@@ -3,6 +3,8 @@ A fully functional eCommerce web application built using the MERN stack (MongoDB
  This is a project done with alot of time, errors and not yet gotten what i had in mind. Planning on working on it fully till I get What i Really Wanted.
 
 
+https://client-sync-buddy.lovable.app
+
 ## 📌 Features
 
 ### 👥 User Features

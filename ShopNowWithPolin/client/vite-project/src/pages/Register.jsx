@@ -3,25 +3,26 @@ import { useState } from "react";
 import axios from "axios";
 
 const Register = () => {
-  const [formData, setFormData] = useState({
-    username: "",
+  const [userData, setUserData] = useState({
+    name: "",
     email: "",
     password: "",
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setUserData({ ...userData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/register", formData);
+      const res = await axios.post("http://localhost:5000/api/auth/register", userData, 
+      );
+      console.log("Registration success:", res.data);
       alert("Registered successfully!");
-      console.log(res.data);
     } catch (err) {
-      alert("Registration failed.");
-      console.error(err.response?.data || err.message);
+      console.error("Registration error:", err.response?.data || err.message);
+       alert("Registration failed.");
     }
   };
 
@@ -31,8 +32,8 @@ const Register = () => {
         <h2 className="text-2xl font-bold mb-6">Register</h2>
         <input
           type="text"
-          name="username"
-          placeholder="Username"
+          name="name"
+          placeholder="Name"
           className="w-full p-2 mb-4 border rounded"
           onChange={handleChange}
           required
